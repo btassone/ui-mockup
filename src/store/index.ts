@@ -11,23 +11,15 @@ const state: RootState = {
   accessLevels: [],
   readers: [],
   readerTypes: [],
+  tableData: {
+    columnHeadings: ["Name", "Reader Type", "Reader(s)"],
+    rows: []
+  },
   selectedItem: {
-    accessLevel: {
-      id: 0,
-      name: '',
-      readerId: 0,
-      description: ''
-    },
+    accessLevel: '',
     description: '',
-    readerType: {
-      id: 0,
-      name: ''
-    },
-    reader: {
-      id: 0,
-      typeId: 0,
-      name: ''
-    }
+    readerType: '',
+    reader: ''
   }
 };
 

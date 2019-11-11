@@ -7,7 +7,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Home from "@/pages/Home.vue";
-import { Action } from 'vuex-class';
+import {Action, Getter, Mutation} from 'vuex-class';
+import {TableData, TableRow} from "@/store/types";
 
 @Component({
   components: {
@@ -18,8 +19,17 @@ export default class App extends Vue {
   @Action('fetchData')
   fetchData!: () => void;
 
+  @Mutation('selectedItem')
+  setSelectedItem!: (selectedItem: TableRow) => void;
+
+  @Getter('tableData')
+  getTableData!: TableData;
+
   mounted() {
     this.fetchData();
+
+    // Set a default selected item
+    this.setSelectedItem(this.getTableData.rows[0]);
   }
 }
 </script>

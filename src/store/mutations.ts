@@ -1,5 +1,5 @@
 import { MutationTree } from 'vuex';
-import {AccessLevel, Reader, ReaderType, RootState, TableRow} from '@/store/types';
+import {AccessLevel, Reader, ReaderType, RootState, TableData, TableRow} from '@/store/types';
 import _ from "underscore";
 
 export const mutations: MutationTree<RootState> = {
@@ -13,11 +13,17 @@ export const mutations: MutationTree<RootState> = {
             }
         })
     },
+    tableData(state: RootState, tableData: TableData): void {
+        state.tableData = tableData;
+    },
     readers(state: RootState, readers: Reader[]): void {
         state.readers = readers;
     },
     readerTypes(state: RootState, readerTypes: ReaderType[]): void {
         state.readerTypes = readerTypes;
+    },
+    readerType(state: RootState, data: any): void {
+        console.log(data);
     },
     selectedItem(state: RootState, selectedItem: TableRow): void {
         state.selectedItem = selectedItem;

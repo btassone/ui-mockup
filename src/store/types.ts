@@ -1,6 +1,7 @@
 export interface RootState {
     accessLevels: AccessLevel[],
     readers: Reader[],
+    tableData: TableData,
     readerTypes: ReaderType[],
     selectedItem: TableRow
 }
@@ -29,8 +30,8 @@ export interface TableData {
 }
 
 export interface TableRow {
-    accessLevel: AccessLevel,
+    accessLevel: string,
     description: string,
-    readerType: ReaderType,
-    reader: Reader,
+    readerType: string,
+    reader: string,
 }

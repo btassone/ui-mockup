@@ -10,10 +10,10 @@
         <div class="table-cell w-4/5">
           <input type="text"
                  class="border border-theme-gray p-1 pl-2 pr-2"
-                 @change="mutateAccessLevel($event.target.value, 'accessLevel', 'name')"
-                 @keyup="mutateAccessLevel($event.target.value, 'accessLevel', 'name')"
-                 @focusout="mutateAccessLevel($event.target.value, 'accessLevel', 'name')"
-                 :value="selectedItem.accessLevel.name"
+                 @change="mutateValue($event.target.value, 'accessLevel')"
+                 @keyup="mutateValue($event.target.value, 'accessLevel')"
+                 @focusout="mutateValue($event.target.value, 'accessLevel')"
+                 :value="selectedItem.accessLevel"
           />
         </div>
       </div>
@@ -22,7 +22,7 @@
           Description:
         </div>
         <div class="table-cell w-4/5 align-top">
-          <textarea v-model="selectedItem.description" class="w-full h-20 border border-theme-gray" @keyup="mutateAccessLevel($event.target.value, 'accessLevel', 'description')"></textarea>
+          <textarea v-model="selectedItem.description" class="w-full h-20 border border-theme-gray p-2" @keyup="mutateValue($event.target.value, 'description')"></textarea>
         </div>
       </div>
       <div class="table-row">
@@ -30,8 +30,8 @@
           Reader Type:
         </div>
         <div class="table-cell w-4/5">
-          <select class="border border-theme-gray p-2 w-full">
-            <option v-for="(readerType, index) in readerTypes" :key="index" :value="readerType.id" :selected="selectedItem.readerType.id === readerType.id ? 'selected' : ''">{{ readerType.name }}</option>
+          <select class="border border-theme-gray p-2 w-full" @change="mutateValue($event.target.value, 'readerType')">
+            <option v-for="(readerType, index) in readerTypes" :key="index" :value="readerType.name" :selected="selectedItem.readerType === readerType.name ? 'selected' : ''">{{ readerType.name }}</option>
           </select>
         </div>
       </div>
@@ -40,8 +40,8 @@
           Reader:
         </div>
         <div class="table-cell w-4/5">
-          <select class="border border-theme-gray p-2 w-full">
-            <option v-for="(reader, index) in readers" :key="index" :value="reader.id" :selected="selectedItem.reader.id === reader.id ? 'selected' : ''">{{ reader.name }}</option>
+          <select class="border border-theme-gray p-2 w-full" @change="mutateValue($event.target.value, 'reader')">
+            <option v-for="(reader, index) in readers" :key="index" :value="reader.name" :selected="selectedItem.reader === reader.name ? 'selected' : ''">{{ reader.name }}</option>
           </select>
         </div>
       </div>
@@ -70,11 +70,11 @@
     @Mutation('accessLevel')
     setAccessLevel!: (accessLevel: AccessLevel) => void;
 
-    mutateAccessLevel(value: any, type: string, prop: string) {
-      (this.selectedItem as any)[type][prop] = value;
+    @Mutation('readerType')
+    setReaderType!: (data: any) => void;
 
-      console.log(this.selectedItem.accessLevel.name);
-      this.setAccessLevel(this.selectedItem.accessLevel);
+    mutateValue(value: any, prop: string) {
+      (this.selectedItem as any)[prop] = value;
     }
 
     changeAccessLevelName(accessLevelName: string) {
@@ -91,6 +91,7 @@
         @apply pb-3;
 
         &:first-child {
+          @apply font-bold;
           min-width: 100px;
         }
         &:last-child {

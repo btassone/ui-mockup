@@ -6,7 +6,7 @@
           {{formatColumnHeading(heading)}}
         </div>
       </div>
-      <div class="table-row" @click="displayData(row)" v-for="(row, index) in tableData.rows" :key="index">
+      <div class="table-row" @click="displayData(row, $event.target)" v-for="(row, index) in tableData.rows" :key="index">
         <div class="table-cell">{{ row.name }}</div>
         <div class="table-cell">{{ row.readerType }}</div>
         <div class="table-cell">{{ row.reader }}</div>
@@ -25,7 +25,16 @@
     @Getter('tableData')
     tableData!: TableData;
 
-    displayData(row: TableRow) {
+    selectedRowElement!: HTMLDivElement;
+
+    displayData(row: TableRow, target: EventTarget) {
+      if (this.selectedRowElement !== null && this.selectedRowElement) {
+        this.selectedRowElement.classList.toggle("selected");
+      }
+
+      this.selectedRowElement = (target as HTMLDivElement).parentElement! as HTMLDivElement;
+      this.selectedRowElement.classList.toggle("selected");
+
       this.$emit('display-data', row);
     }
 
@@ -40,5 +49,8 @@
 
 <style scoped lang="scss">
   #crud-table {
+    .selected {
+      @apply bg-theme-gray;
+    }
   }
 </style>

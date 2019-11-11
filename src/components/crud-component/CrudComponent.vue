@@ -1,7 +1,10 @@
 <template>
   <div id="crud-component">
-    <crud-header></crud-header>
-    <crud-table @display-data="displayData" :columns="tableColumns"></crud-table>
+    <h1>Access Levels</h1>
+    <div>
+      <crud-header></crud-header>
+      <crud-table @display-data="displayData" :columns="tableColumns"></crud-table>
+    </div>
   </div>
 </template>
 <script lang="ts">

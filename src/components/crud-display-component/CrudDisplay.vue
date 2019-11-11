@@ -1,31 +1,34 @@
 <template>
   <div id="crud-display">
-      <div class="table">
-        <div class="table-row">
-          <div class="table-cell align-top">
-            Name:
-          </div>
-          <div class="table-cell">
-            <input type="text" :value="selectedItem.name" />
-          </div>
+    <h1>Access Name</h1>
+    <div class="table">
+      <div class="table-row">
+        <div class="table-cell align-top">
+          Name:
         </div>
-        <div class="table-row">
-          <div class="table-cell align-top">
-            Reader Type:
-          </div>
-          <div class="table-cell">
-            <textarea v-model="selectedItem.readerType"></textarea>
-          </div>
+        <div class="table-cell">
+          <input type="text" :value="selectedItem.name" />
         </div>
-        <div class="table-row">
-          <div class="table-cell align-top">
-            Reader:
-          </div>
-          <select>
+      </div>
+      <div class="table-row">
+        <div class="table-cell align-top">
+          Reader Type:
+        </div>
+        <div class="table-cell">
+          <textarea v-model="selectedItem.readerType"></textarea>
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell align-top">
+          Reader:
+        </div>
+        <div class="table-cell">
+          <select class="border border-theme-gray">
             <option v-for="(reader, index) in readers" :key="index" :value="reader.id" :selected="selectedItem.reader === reader.name ? 'selected' : ''">{{ reader.name }}</option>
           </select>
         </div>
       </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -53,7 +56,11 @@
 </script>
 
 <style scoped lang="scss">
-  .crud-display-component {
-
+  #crud-display {
+    .table-row {
+      .table-cell:last-child {
+        @apply pl-3;
+      }
+    }
   }
 </style>

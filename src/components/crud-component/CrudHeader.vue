@@ -1,7 +1,7 @@
 <template>
-  <div id="crud-header">
+  <div id="crud-header" class="flex items-center">
       <crud-add></crud-add>
-      <crud-search></crud-search>
+      <crud-search class="ml-3"></crud-search>
   </div>
 </template>
 <script lang="ts">

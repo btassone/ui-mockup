@@ -1,5 +1,5 @@
 <template>
-  <div id="crud-header" class="flex items-center">
+  <div id="crud-header" class="flex items-center mb-4">
       <crud-add></crud-add>
       <crud-search class="ml-3"></crud-search>
   </div>

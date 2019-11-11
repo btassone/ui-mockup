@@ -2,7 +2,7 @@
   <div id="crud-table">
     <div class="table w-full">
       <div class="table-row">
-        <div class="table-cell capitalize" v-for="(heading, index) in tableData.columnHeadings" :key="index">
+        <div class="table-cell font-bold" v-for="(heading, index) in tableData.columnHeadings" :key="index">
           {{formatColumnHeading(heading)}}
         </div>
       </div>

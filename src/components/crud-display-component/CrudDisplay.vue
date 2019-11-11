@@ -1,6 +1,7 @@
 <template>
   <div id="crud-display">
-    <h1>Access Name</h1>
+    <h1 class="font-bold mb-3 text-lg">Access Name</h1>
+    <hr class="mb-3" />
     <div class="table">
       <div class="table-row">
         <div class="table-cell align-top">

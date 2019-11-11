@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <home></home>
+  <div id="app" class="flex justify-center items-center h-screen">
+    <home class="w-full"></home>
   </div>
 </template>
 
@@ -25,5 +25,7 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
-
+  #home {
+    max-width: 80%;
+  }
 </style>

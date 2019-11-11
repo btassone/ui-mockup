@@ -1,6 +1,7 @@
 <template>
   <div id="crud-component">
-    <h1>Access Levels</h1>
+    <h1 class="font-bold mb-3 text-lg">Access Levels</h1>
+    <hr class="mb-3" />
     <div>
       <crud-header></crud-header>
       <crud-table :columns="tableColumns"></crud-table>

@@ -1,8 +1,9 @@
 <template>
   <div id="home">
-    <h1>Ui Mockup</h1>
+    <h1 class="mt-0 mb-4 font-bold text-xl uppercase leading-none">Ui Mockup</h1>
+    <hr class="mb-4" />
     <div class="flex">
-      <crud-component class="w-3/5"></crud-component>
+      <crud-component class="w-3/5 mr-4"></crud-component>
       <crud-display :selected-item="selectedItem" class="w-2/5 ml-4"></crud-display>
     </div>
   </div>
@@ -29,7 +30,5 @@
 </script>
 
 <style scoped lang="scss">
-  .home {
 
-  }
 </style>

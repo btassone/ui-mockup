@@ -2,8 +2,8 @@
   <div id="crud-table">
     <div class="table w-full">
       <div class="table-row">
-        <div class="table-cell" v-for="(heading, index) in tableData.columnHeadings" :key="index">
-          {{heading}}
+        <div class="table-cell capitalize" v-for="(heading, index) in tableData.columnHeadings" :key="index">
+          {{formatColumnHeading(heading)}}
         </div>
       </div>
       <div class="table-row" @click="displayData(row)" v-for="(row, index) in tableData.rows" :key="index">
@@ -17,7 +17,6 @@
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
-  import { Prop } from 'vue-property-decorator';
   import { Getter } from 'vuex-class';
   import {AccessLevel, TableData, TableRow} from '@/store/types';
 
@@ -28,6 +27,12 @@
 
     displayData(row: TableRow) {
       this.$emit('display-data', row);
+    }
+
+    formatColumnHeading(heading: string) {
+      let matched = heading.split(/(?=[A-Z])/);
+
+      return matched !== null ? matched.join(" ") : heading;
     }
   }
 

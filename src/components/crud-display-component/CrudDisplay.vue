@@ -2,7 +2,7 @@
   <div id="crud-display">
       <div class="table">
         <div class="table-row">
-          <div class="table-cell">
+          <div class="table-cell align-top">
             Name:
           </div>
           <div class="table-cell">
@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="table-row">
-          <div class="table-cell">
+          <div class="table-cell align-top">
             Reader Type:
           </div>
           <div class="table-cell">
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="table-row">
-          <div class="table-cell">
+          <div class="table-cell align-top">
             Reader:
           </div>
           <select>

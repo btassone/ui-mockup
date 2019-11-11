@@ -13,13 +13,7 @@
           AddIcon
       }
   })
-  export default class CrudComponentAddComponent extends Vue {
-
-    mounted (){
-      console.log('Crud add component mounted');
-    }
-    
-  }
+  export default class CrudComponentAddComponent extends Vue {}
 
 </script>
 

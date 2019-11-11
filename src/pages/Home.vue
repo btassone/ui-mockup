@@ -21,10 +21,6 @@
   export default class HomeComponent extends Vue {
 
     selectedItem: TableRow = {} as TableRow;
-
-    mounted (){
-      console.log('Home page mounted');
-    }
   }
 
 </script>

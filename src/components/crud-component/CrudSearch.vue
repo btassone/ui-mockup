@@ -8,13 +8,7 @@
   import Component from 'vue-class-component';
 
   @Component({})
-  export default class CrudSearchComponent extends Vue {
-
-    mounted (){
-      console.log('Crud search component mounted');
-    }
-    
-  }
+  export default class CrudSearchComponent extends Vue {}
 
 </script>
 

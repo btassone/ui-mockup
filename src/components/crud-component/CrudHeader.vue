@@ -13,13 +13,7 @@
   @Component({
       components: {CrudAdd, CrudSearch}
   })
-  export default class CrudHeaderComponent extends Vue {
-
-    mounted (){
-      console.log('Crud header component mounted');
-    }
-    
-  }
+  export default class CrudHeaderComponent extends Vue {}
 
 </script>
 

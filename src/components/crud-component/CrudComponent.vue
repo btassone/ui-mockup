@@ -21,11 +21,6 @@
   export default class CrudComponentComponent extends Vue {
 
     tableColumns: string[] = ['Name', 'Reader Type', 'Reader(s)'];
-
-    mounted (){
-      console.log('Crud component mounted');
-    }
-    
   }
 
 </script>

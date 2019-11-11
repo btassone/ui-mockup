@@ -10,7 +10,25 @@ Vue.use(Vuex);
 const state: RootState = {
   accessLevels: [],
   readers: [],
-  readerTypes: []
+  readerTypes: [],
+  selectedItem: {
+    accessLevel: {
+      id: 0,
+      name: '',
+      readerId: 0,
+      description: ''
+    },
+    description: '',
+    readerType: {
+      id: 0,
+      name: ''
+    },
+    reader: {
+      id: 0,
+      typeId: 0,
+      name: ''
+    }
+  }
 };
 
 const store: StoreOptions<RootState> = {

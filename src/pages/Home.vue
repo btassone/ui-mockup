@@ -2,7 +2,7 @@
   <div id="home">
     <h1>Ui Mockup</h1>
     <div class="flex">
-      <crud-component @display-data="displayData" class="w-3/5"></crud-component>
+      <crud-component class="w-3/5"></crud-component>
       <crud-display :selected-item="selectedItem" class="w-2/5 ml-4"></crud-display>
     </div>
   </div>
@@ -24,11 +24,6 @@
     mounted (){
       console.log('Home page mounted');
     }
-
-    displayData(row: TableRow) {
-      this.selectedItem = row;
-    }
-    
   }
 
 </script>

@@ -16,36 +16,26 @@ export const getters: GetterTree<RootState, RootState> = {
     tableData(state: RootState): TableData {
         let data = [];
         let tableData: TableData = {
-            columnHeadings: [],
+            columnHeadings: ["Name", "Reader Type", "Reader(s)"],
             rows: []
         };
 
         _.each(state.accessLevels, (accessLevel: AccessLevel) => {
-            let name: string = accessLevel.name;
-
-            const readerObj: Reader = _.findWhere(state.readers, { id: accessLevel.readerId }) as Reader;
-            const readerTypeObj: ReaderType = _.findWhere(state.readerTypes, { id: readerObj.typeId }) as ReaderType;
-
-            const reader: string = readerObj.name;
-            const readerType: string = readerTypeObj.name;
+            const description: string = accessLevel.description;
+            const reader: Reader = _.findWhere(state.readers, { id: accessLevel.readerId }) as Reader;
+            const readerType: ReaderType = _.findWhere(state.readerTypes, { id: reader.typeId }) as ReaderType;
 
             tableData.rows.push({
-                name,
+                accessLevel,
+                description,
                 readerType,
                 reader,
             });
         });
 
-        if (tableData.rows.length > 0) {
-           const item = tableData.rows[0];
-
-           for (let itemName in item) {
-               if (item.hasOwnProperty(itemName)) {
-                   tableData.columnHeadings.push(itemName);
-               }
-           }
-        }
-
         return tableData;
+    },
+    selectedItem(state: RootState): TableRow {
+        return state.selectedItem;
     }
 };

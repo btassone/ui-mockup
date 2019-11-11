@@ -3,7 +3,7 @@
     <h1>Access Levels</h1>
     <div>
       <crud-header></crud-header>
-      <crud-table @display-data="displayData" :columns="tableColumns"></crud-table>
+      <crud-table :columns="tableColumns"></crud-table>
     </div>
   </div>
 </template>
@@ -23,10 +23,6 @@
 
     mounted (){
       console.log('Crud component mounted');
-    }
-
-    displayData(row: TableRow) {
-      this.$emit('display-data', row);
     }
     
   }

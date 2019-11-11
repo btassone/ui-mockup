@@ -6,10 +6,10 @@
           {{formatColumnHeading(heading)}}
         </div>
       </div>
-      <div class="table-row" @click="displayData(row, $event.target)" v-for="(row, index) in tableData.rows" :key="index">
-        <div class="table-cell">{{ row.name }}</div>
-        <div class="table-cell">{{ row.readerType }}</div>
-        <div class="table-cell">{{ row.reader }}</div>
+      <div class="table-row" @click="setSelectedItem(row, $event.target)" v-for="(row, index) in tableData.rows" :key="index">
+        <div class="table-cell">{{ row.accessLevel.name }}</div>
+        <div class="table-cell">{{ row.readerType.name }}</div>
+        <div class="table-cell">{{ row.reader.name }}</div>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
-  import { Getter } from 'vuex-class';
+  import {Getter, Mutation} from 'vuex-class';
   import {AccessLevel, TableData, TableRow} from '@/store/types';
 
   @Component({})
@@ -25,9 +25,12 @@
     @Getter('tableData')
     tableData!: TableData;
 
+    @Mutation('selectedItem')
+    selectedItem!: (selectedItem: TableRow) => void;
+
     selectedRowElement!: HTMLDivElement;
 
-    displayData(row: TableRow, target: EventTarget) {
+    setSelectedItem(row: TableRow, target: EventTarget) {
       if (this.selectedRowElement !== null && this.selectedRowElement) {
         this.selectedRowElement.classList.toggle("selected");
       }
@@ -35,7 +38,7 @@
       this.selectedRowElement = (target as HTMLDivElement).parentElement! as HTMLDivElement;
       this.selectedRowElement.classList.toggle("selected");
 
-      this.$emit('display-data', row);
+      this.selectedItem(row);
     }
 
     formatColumnHeading(heading: string) {

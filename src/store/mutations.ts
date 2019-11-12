@@ -14,27 +14,28 @@ export const mutations: MutationTree<RootState> = {
         })
     },
     filterTableData(state: RootState, value: string) {
+        value = value.toLowerCase();
 
         const accessFiltered = state.tableData.rows.filter((row: TableRow) => {
-            if (row.accessLevel.indexOf(value) !== -1) {
+            if (row.accessLevel.toLowerCase().indexOf(value) !== -1) {
                 return row;
             }
         });
 
         const descriptionFiltered = state.tableData.rows.filter((row: TableRow) => {
-            if (row.description.indexOf(value) !== -1) {
+            if (row.description.toLowerCase().indexOf(value) !== -1) {
                 return row;
             }
         });
 
         const readerFiltered = state.tableData.rows.filter((row: TableRow) => {
-            if (row.reader.indexOf(value) !== -1) {
+            if (row.reader.toLowerCase().indexOf(value) !== -1) {
                 return row;
             }
         });
 
         const readerTypeFiltered = state.tableData.rows.filter((row: TableRow) => {
-            if (row.readerType.indexOf(value) !== -1) {
+            if (row.readerType.toLowerCase().indexOf(value) !== -1) {
                 return row;
             }
         });

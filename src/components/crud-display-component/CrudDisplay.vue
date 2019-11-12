@@ -4,7 +4,7 @@
     <h1 class="font-bold mb-3 text-lg">Access Name</h1>
     <hr class="mb-3" />
 
-    <div class="table w-full">
+    <div class="table table-fixed w-full">
 
       <!-- Access Level -->
       <div class="table-row">
@@ -15,7 +15,7 @@
         <div class="table-cell w-4/5">
           <input type="text"
              id="access-level"
-             class="border border-theme-gray p-1 pl-2 pr-2"
+             class="border border-theme-gray p-1 pl-2 pr-2 w-full"
              @change="mutateValue($event.target.value, 'accessLevel')"
              @keyup="mutateValue($event.target.value, 'accessLevel')"
              @focusout="mutateValue($event.target.value, 'accessLevel')"

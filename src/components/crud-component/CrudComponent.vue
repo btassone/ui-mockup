@@ -3,7 +3,7 @@
     <h1 class="font-bold mb-3 text-lg">Access Levels</h1>
     <hr class="mb-3" />
     <div>
-      <crud-header></crud-header>
+      <crud-header class="border-b border-theme-dark-gray"></crud-header>
       <crud-table></crud-table>
     </div>
   </div>

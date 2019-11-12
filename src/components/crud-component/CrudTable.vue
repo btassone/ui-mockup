@@ -1,11 +1,11 @@
 <template>
   <div id="crud-table">
-    <div class="table w-full">
+    <div class="table table-fixed w-full">
 
       <!-- Column Headings -->
-      <div class="table-row">
+      <div class="table-row header bg-theme-gray">
         <div
-            class="table-cell font-bold border-b pb-1 border-theme-dark"
+            class="table-cell font-bold text-theme-dark border-b pb-1 border-theme-dark-gray"
             v-for="(heading, index) in this.tableData.columnHeadings"
             :key="index">
           {{heading}}
@@ -14,12 +14,14 @@
 
       <!-- Table Data -->
       <div
-          class="table-row"
+          class="table-row data-item"
           v-for="(row, index) in tData()"
           :class="{ 'selected': row === selectedItem }"
           :key="index"
           @click="setSelectedItem(row, $event.target)">
-        <div class="table-cell">{{ row.accessLevel }}</div>
+        <div class="table-cell">
+          <span>{{ row.accessLevel }}</span>
+        </div>
         <div class="table-cell">{{ row.readerType }}</div>
         <div class="table-cell">{{ row.reader }}</div>
       </div>
@@ -71,8 +73,43 @@
 
 <style scoped lang="scss">
   #crud-table {
-    .selected {
-      @apply bg-theme-gray;
+    .selected .table-cell {
+      @apply bg-yellow-300;
+    }
+
+    .table-cell {
+      @apply p-1;
+
+      &:first-child {
+        @apply w-3/5;
+      }
+
+      &:nth-child(2) {
+        @apply w-1/5;
+      }
+
+      &:last-child {
+        @apply w-1/5;
+      }
+    }
+
+    .table-row.header {
+      .table-cell {
+        &:first-child {
+          @apply border-l-0;
+        }
+        @apply border-l border-theme-dark-gray;
+      }
+    }
+
+    .data-item {
+      .table-cell {
+        @apply border-b border-l border-theme-dark-gray;
+
+        &:first-child {
+          @apply border-l-0;
+        }
+      }
     }
   }
 </style>

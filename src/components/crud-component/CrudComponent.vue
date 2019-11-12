@@ -4,7 +4,7 @@
     <hr class="mb-3" />
     <div>
       <crud-header></crud-header>
-      <crud-table :columns="tableColumns"></crud-table>
+      <crud-table></crud-table>
     </div>
   </div>
 </template>
@@ -17,10 +17,7 @@
   @Component({
     components: {CrudTable, CrudHeader}
   })
-  export default class CrudComponentComponent extends Vue {
-
-    tableColumns: string[] = ['Name', 'Reader Type', 'Reader(s)'];
-  }
+  export default class CrudComponentComponent extends Vue {}
 
 </script>
 

@@ -1,6 +1,11 @@
 <template>
   <div id="crud-search" class="w-full">
-      <input type="text" @keyup="passSearchToFilter($event.target.value)" class="border border-theme-gray p-1 pl-2 pr-2 w-full" value="" placeholder="Spotlight Search" />
+      <input
+          type="text"
+          @keyup="setSearchValue($event.target.value)"
+          class="border border-theme-gray p-1 pl-2 pr-2 w-full"
+          value=""
+          placeholder="Spotlight Search" />
   </div>
 </template>
 <script lang="ts">
@@ -16,10 +21,6 @@
 
     @Mutation('searchValue')
     setSearchValue!: (searchValue: string) => void;
-
-    passSearchToFilter(value: any) {
-      this.setSearchValue(value);
-    }
   }
 
 </script>

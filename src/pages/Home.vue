@@ -4,7 +4,7 @@
     <hr class="mb-4" />
     <div class="flex">
       <crud-component class="w-3/5 mr-4"></crud-component>
-      <crud-display :selected-item="selectedItem" class="w-2/5 ml-4"></crud-display>
+      <crud-display class="w-2/5 ml-4"></crud-display>
     </div>
   </div>
 </template>
@@ -13,15 +13,11 @@
   import Component from 'vue-class-component';
   import CrudComponent from '@/components/crud-component/CrudComponent.vue'
   import CrudDisplay from '@/components/crud-display-component/CrudDisplay.vue'
-  import { TableRow } from '@/store/types'
 
   @Component({
       components: {CrudDisplay, CrudComponent}
   })
-  export default class HomeComponent extends Vue {
-
-    selectedItem: TableRow = {} as TableRow;
-  }
+  export default class HomeComponent extends Vue {}
 
 </script>
 

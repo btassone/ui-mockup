@@ -6,7 +6,9 @@
           {{formatColumnHeading(heading)}}
         </div>
       </div>
-      <div class="table-row" @click="setSelectedItem(row, $event.target)" v-for="(row, index) in tData()" :key="index">
+      <div class="table-row" :class="{
+        'selected': row === selectedItem
+      }" @click="setSelectedItem(row, $event.target)" v-for="(row, index) in tData()" :key="index">
         <div class="table-cell">{{ row.accessLevel }}</div>
         <div class="table-cell">{{ row.readerType }}</div>
         <div class="table-cell">{{ row.reader }}</div>
@@ -28,20 +30,16 @@
     @Getter('filteredTableData')
     filteredTableData!: TableRow[];
 
+    @Getter('selectedItem')
+    selectedItem!: TableRow;
+
     @Mutation('selectedItem')
-    selectedItem!: (selectedItem: TableRow) => void;
+    mutateSelectedItem!: (selectedItem: TableRow) => void;
 
     selectedRowElement!: HTMLDivElement;
 
     setSelectedItem(row: TableRow, target: EventTarget) {
-      if (this.selectedRowElement !== null && this.selectedRowElement) {
-        this.selectedRowElement.classList.toggle("selected");
-      }
-
-      this.selectedRowElement = (target as HTMLDivElement).parentElement! as HTMLDivElement;
-      this.selectedRowElement.classList.toggle("selected");
-
-      this.selectedItem(row);
+      this.mutateSelectedItem(row);
     }
 
     tData(): TableRow[] {

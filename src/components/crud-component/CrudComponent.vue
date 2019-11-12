@@ -11,9 +11,8 @@
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
-  import CrudHeader from "@/components/crud-component/CrudHeader.vue";
-  import CrudTable from "@/components/crud-component/CrudTable.vue";
-  import {TableRow} from "@/store/types";
+  import CrudHeader from '@/components/crud-component/CrudHeader.vue';
+  import CrudTable from '@/components/crud-component/CrudTable.vue';
 
   @Component({
     components: {CrudTable, CrudHeader}

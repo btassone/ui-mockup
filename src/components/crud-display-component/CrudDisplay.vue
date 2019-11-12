@@ -51,9 +51,9 @@
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
-  import {Getter, Mutation} from "vuex-class";
-  import {AccessLevel, Reader, ReaderType, TableData, TableRow} from "@/store/types";
-  import {Prop} from "vue-property-decorator";
+  import { Getter, Mutation } from "vuex-class";
+  import { AccessLevel, Reader, ReaderType, TableData, TableRow } from "@/store/types";
+  import { Prop } from "vue-property-decorator";
 
   @Component({})
   export default class CrudDisplayComponent extends Vue {
@@ -75,10 +75,6 @@
 
     mutateValue(value: any, prop: string) {
       (this.selectedItem as any)[prop] = value;
-    }
-
-    changeAccessLevelName(accessLevelName: string) {
-      console.log(accessLevelName);
     }
   }
 

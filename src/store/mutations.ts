@@ -62,9 +62,6 @@ export const mutations: MutationTree<RootState> = {
     readerTypes(state: RootState, readerTypes: ReaderType[]): void {
         state.readerTypes = readerTypes;
     },
-    readerType(state: RootState, data: any): void {
-        console.log(data);
-    },
     selectedItem(state: RootState, selectedItem: TableRow): void {
         state.selectedItem = selectedItem;
     }

@@ -7,8 +7,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Home from "@/pages/Home.vue";
-import {Action, Getter, Mutation} from 'vuex-class';
-import {TableData, TableRow} from "@/store/types";
+import { Action, Getter, Mutation } from 'vuex-class';
+import { TableData, TableRow } from '@/store/types';
 
 @Component({
   components: {

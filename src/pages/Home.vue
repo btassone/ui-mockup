@@ -11,9 +11,9 @@
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
-  import CrudComponent from "@/components/crud-component/CrudComponent.vue";
-  import CrudDisplay from "@/components/crud-display-component/CrudDisplay.vue";
-  import {TableRow} from "@/store/types";
+  import CrudComponent from '@/components/crud-component/CrudComponent.vue'
+  import CrudDisplay from '@/components/crud-display-component/CrudDisplay.vue'
+  import { TableRow } from '@/store/types'
 
   @Component({
       components: {CrudDisplay, CrudComponent}

@@ -19,8 +19,8 @@
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
-  import {Getter, Mutation} from 'vuex-class';
-  import {AccessLevel, TableData, TableRow} from '@/store/types';
+  import { Getter, Mutation } from 'vuex-class';
+  import { AccessLevel, TableData, TableRow } from '@/store/types';
 
   @Component({})
   export default class CrudTableComponent extends Vue {
@@ -35,8 +35,6 @@
 
     @Mutation('selectedItem')
     mutateSelectedItem!: (selectedItem: TableRow) => void;
-
-    selectedRowElement!: HTMLDivElement;
 
     setSelectedItem(row: TableRow, target: EventTarget) {
       this.mutateSelectedItem(row);

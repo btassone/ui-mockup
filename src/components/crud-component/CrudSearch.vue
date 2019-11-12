@@ -6,8 +6,8 @@
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
-  import {Getter, Mutation} from "vuex-class";
-  import {TableData, TableRow} from "@/store/types";
+  import { Getter, Mutation } from 'vuex-class';
+  import { TableData } from '@/store/types';
 
   @Component({})
   export default class CrudSearchComponent extends Vue {

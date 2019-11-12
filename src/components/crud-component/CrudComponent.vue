@@ -22,7 +22,7 @@
 </script>
 
 <style scoped lang="scss">
-  #crud-component {
-
+  #crud-header {
+    position: relative;
   }
 </style>

@@ -72,44 +72,50 @@
 </script>
 
 <style scoped lang="scss">
-  #crud-table {
-    .selected .table-cell {
-      @apply bg-yellow-300;
+  .table-cell {
+    @apply p-1;
+
+    &:first-child {
+      @apply w-3/5;
     }
+
+    &:nth-child(2) {
+      @apply w-1/5;
+    }
+
+    &:last-child {
+      @apply w-1/5;
+    }
+  }
+
+  .table-row.header {
+    position: relative;
 
     .table-cell {
-      @apply p-1;
+      &:first-child {
+        @apply border-l-0;
+      }
+      @apply border-l border-theme-dark-gray;
+    }
+  }
+
+  .data-item {
+    .table-cell {
+      @apply border-b border-l border-theme-dark-gray;
 
       &:first-child {
-        @apply w-3/5;
-      }
-
-      &:nth-child(2) {
-        @apply w-1/5;
-      }
-
-      &:last-child {
-        @apply w-1/5;
+        @apply border-l-0;
       }
     }
+  }
 
-    .table-row.header {
-      .table-cell {
-        &:first-child {
-          @apply border-l-0;
-        }
-        @apply border-l border-theme-dark-gray;
-      }
+  #crud-table {
+    .selected {
+      outline: 2px solid lightblue;
+      outline-offset: -2px;
+      box-shadow: 0 0 12px 1px lightblue inset;
     }
 
-    .data-item {
-      .table-cell {
-        @apply border-b border-l border-theme-dark-gray;
 
-        &:first-child {
-          @apply border-l-0;
-        }
-      }
-    }
   }
 </style>

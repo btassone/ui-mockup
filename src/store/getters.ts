@@ -16,6 +16,12 @@ export const getters: GetterTree<RootState, RootState> = {
     readerTypes(state: RootState): ReaderType[] {
         return state.readerTypes;
     },
+    filteredTableData(state: RootState): TableRow[] {
+        return state.filteredData;
+    },
+    searchValue(state: RootState): string {
+        return state.searchValue;
+    },
     selectedItem(state: RootState): TableRow {
         return state.selectedItem;
     }

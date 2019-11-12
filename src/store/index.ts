@@ -15,12 +15,14 @@ const state: RootState = {
     columnHeadings: ["Name", "Reader Type", "Reader(s)"],
     rows: []
   },
+  filteredData: [],
   selectedItem: {
     accessLevel: '',
     description: '',
     readerType: '',
     reader: ''
-  }
+  },
+  searchValue: ''
 };
 
 const store: StoreOptions<RootState> = {

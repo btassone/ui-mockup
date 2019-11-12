@@ -2,8 +2,10 @@ export interface RootState {
     accessLevels: AccessLevel[],
     readers: Reader[],
     tableData: TableData,
+    filteredData: TableRow[],
     readerTypes: ReaderType[],
-    selectedItem: TableRow
+    selectedItem: TableRow,
+    searchValue: string
 }
 
 export interface AccessLevel {
